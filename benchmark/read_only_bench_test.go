@@ -44,6 +44,7 @@ func readOnlyBenchmark(m HashMap, goroutinesNum int, readTimes int) time.Duratio
 	for i := 0; i < goroutinesNum; i++ {
 		<-finished
 	}
+	close(finished)
 
 	return time.Now().Sub(start)
 }
